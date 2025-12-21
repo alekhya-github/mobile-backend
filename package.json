@@ -1,0 +1,34 @@
+{
+  "name": "mobile-backend",
+  "version": "1.0.0",
+  "description": "Backend API server for mobile app phone data",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "express",
+    "typescript",
+    "mobile",
+    "api",
+    "phones"
+  ],
+  "author": "Alekhya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "typescript": "^5.3.2",
+    "ts-node": "^10.9.1",
+    "nodemon": "^3.0.2"
+  }
+}
