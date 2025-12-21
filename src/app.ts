@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", phoneRoutes);
 
 // Health check endpoint
-app.get("/health", (req, res) => {
+app.get("/health", (_req, res) => {
   res.status(200).json({
     success: true,
     message: "Mobile Backend API is running",
@@ -40,9 +40,9 @@ app.use("*", (req, res) => {
 app.use(
   (
     err: Error,
-    req: express.Request,
+    _req: express.Request,
     res: express.Response,
-    next: express.NextFunction
+    _next: express.NextFunction
   ) => {
     console.error("Error:", err.stack);
     res.status(500).json({
