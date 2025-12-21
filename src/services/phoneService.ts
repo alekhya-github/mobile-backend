@@ -3,7 +3,7 @@ import { phoneData } from "../data/phoneData";
 
 export class PhoneService {
   /**
-   * Get all phones with simulated network delay
+   * Get all phones with simulated network delay from dummy data
    * @returns Promise<Phone[]>
    */
   static async getPhones(): Promise<Phone[]> {
