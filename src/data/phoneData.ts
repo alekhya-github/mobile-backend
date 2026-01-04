@@ -169,28 +169,30 @@ export const phoneData: Phone[] = [
     model: "Galaxy S25 Ultra",
     tagline: "Unleash Galaxy AI",
     images: {
-      main: "/images/phones/galaxy-s25-ultra-titanium-silverblue.png",
+      main: "/images/phones/samsung/galaxy-s25-ultra-titanium-silverblue.webp",
       gallery: [
-        "/images/phones/galaxy-s25-ultra-titanium-silverblue-front.png",
-        "/images/phones/galaxy-s25-ultra-titanium-silverblue-back.png",
-        "/images/phones/galaxy-s25-ultra-titanium-silverblue-side.png",
+        "/images/phones/samsung/galaxy-s25-ultra-titanium-silverblue.webp",
+        "/images/phones/samsung/galaxy-s25-ultra-titanium-silverblue-front.webp",
+        "/images/phones/samsung/galaxy-s25-ultra-titanium-black.webp",
       ],
     },
     colors: [
       {
         name: "Titanium Silverblue",
         hexCode: "#A8B5C4",
-        image: "/images/phones/galaxy-s25-ultra-titanium-silverblue.png",
+        image:
+          "/images/phones/samsung/galaxy-s25-ultra-titanium-silverblue.webp",
       },
       {
         name: "Titanium Black",
         hexCode: "#1C1C1C",
-        image: "/images/phones/galaxy-s25-ultra-titanium-black.png",
+        image: "/images/phones/samsung/galaxy-s25-ultra-titanium-black.webp",
       },
       {
         name: "Titanium Gray",
         hexCode: "#6B7280",
-        image: "/images/phones/galaxy-s25-ultra-titanium-gray.png",
+        image:
+          "/images/phones/samsung/galaxy-s25-ultra-titanium-silverblue.webp",
       },
     ],
     selectedColor: "Titanium Silverblue",
@@ -316,29 +318,29 @@ export const phoneData: Phone[] = [
     model: "iPhone 17",
     tagline: "A new era",
     images: {
-      main: "/images/phones/CXM-833_Apple_iPhone-17_Lavender_PRI.webp",
+      main: "/images/phones/apple/CXM-833_Apple_iPhone-17_Lavender_PRI.webp",
       gallery: [
-        "/images/phones/CXM-833_Apple_iPhone-17_Lavender_PRI.webp",
-        "/images/phones/CXM-833_Apple_iPhone-17_Black_PRI.webp",
-        "/images/phones/CXM-833_Apple_iPhone-17_Sage_PRI.webp",
-        "/images/phones/Shop_iPhone17-on-us_Size_1280.webp",
+        "/images/phones/apple/CXM-833_Apple_iPhone-17_Lavender_PRI.webp",
+        "/images/phones/apple/CXM-833_Apple_iPhone-17_Black_PRI.webp",
+        "/images/phones/apple/CXM-833_Apple_iPhone-17_Sage_PRI.webp",
+        "/images/phones/apple/Shop_iPhone17-on-us_Size_1280.webp",
       ],
     },
     colors: [
       {
         name: "Lavender",
         hexCode: "#B8A9C9",
-        image: "/images/phones/CXM-833_Apple_iPhone-17_Lavender_PRI.webp",
+        image: "/images/phones/apple/CXM-833_Apple_iPhone-17_Lavender_PRI.webp",
       },
       {
         name: "Black",
         hexCode: "#1D1D1F",
-        image: "/images/phones/CXM-833_Apple_iPhone-17_Black_PRI.webp",
+        image: "/images/phones/apple/CXM-833_Apple_iPhone-17_Black_PRI.webp",
       },
       {
         name: "Sage",
         hexCode: "#9CAF88",
-        image: "/images/phones/CXM-833_Apple_iPhone-17_Sage_PRI.webp",
+        image: "/images/phones/apple/CXM-833_Apple_iPhone-17_Sage_PRI.webp",
       },
     ],
     selectedColor: "Lavender",
