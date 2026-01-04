@@ -1,5 +1,6 @@
-import { Phone } from "../models/Phone";
+import { Phone, TradeInOfferRequest, TradeInOfferData } from "../models/Phone";
 import { phoneData } from "../data/phoneData";
+import { getTradeInValue, getPhonePromotion } from "../data/tradeInData";
 
 export class PhoneService {
   /**
@@ -55,6 +56,38 @@ export class PhoneService {
         const brands = [...new Set(phoneData.map((phone) => phone.brand))];
         resolve(brands);
       }, 200);
+    });
+  }
+
+  /**
+   * Get trade-in offer based on request
+   * @param request - Trade-in offer request with phone and trade-in device details
+   * @returns Promise<TradeInOfferData>
+   */
+  static async getTradeInOffer(
+    request: TradeInOfferRequest
+  ): Promise<TradeInOfferData> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        // Look up trade-in value based on brand and model
+        const tradeInEntry = getTradeInValue(
+          request.tradeinPhoneBrand,
+          request.tradeinModel
+        );
+
+        // Get promotion based on selected phone being purchased
+        const phonePromotion = getPhonePromotion(request.selectedPhoneId);
+
+        const response: TradeInOfferData = {
+          selectedPhoneId: request.selectedPhoneId,
+          tradeinPhoneBrand: request.tradeinPhoneBrand,
+          tradeinModel: request.tradeinModel,
+          tradeinValue: tradeInEntry ? tradeInEntry.tradeinValue : "$0",
+          tradeinPromotion: phonePromotion.basePromotion,
+        };
+
+        resolve(response);
+      }, 300);
     });
   }
 }

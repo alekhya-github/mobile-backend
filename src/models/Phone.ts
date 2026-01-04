@@ -96,3 +96,20 @@ export interface ApiResponse<T> {
 
 export interface PhoneListResponse extends ApiResponse<Phone[]> {}
 export interface PhoneResponse extends ApiResponse<Phone> {}
+
+// Trade-In Offer interfaces
+export interface TradeInOfferRequest {
+  selectedPhoneId: string;
+  tradeinPhoneBrand: string;
+  tradeinModel: string;
+}
+
+export interface TradeInOfferData {
+  selectedPhoneId: string;
+  tradeinPhoneBrand: string;
+  tradeinModel: string;
+  tradeinValue: string;
+  tradeinPromotion: string;
+}
+
+export interface TradeInOfferResponse extends ApiResponse<TradeInOfferData> {}

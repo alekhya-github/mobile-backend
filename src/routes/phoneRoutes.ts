@@ -9,4 +9,7 @@ router.get("/phones/:id", PhoneController.getPhoneById);
 router.get("/phones/brand/:brand", PhoneController.getPhonesByBrand);
 router.get("/brands", PhoneController.getAvailableBrands);
 
+// Trade-in routes
+router.post("/trade-in-offer", PhoneController.getTradeInOffer);
+
 export default router;

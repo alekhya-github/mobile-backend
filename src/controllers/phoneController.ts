@@ -1,6 +1,10 @@
 import { Request, Response } from "express";
 import { PhoneService } from "../services/phoneService";
-import { PhoneListResponse, PhoneResponse } from "../models/Phone";
+import {
+  PhoneListResponse,
+  PhoneResponse,
+  TradeInOfferResponse,
+} from "../models/Phone";
 
 export class PhoneController {
   /**
@@ -137,6 +141,51 @@ export class PhoneController {
       const errorResponse = {
         success: false,
         error: "Failed to fetch available brands",
+        message:
+          error instanceof Error ? error.message : "Unknown error occurred",
+      };
+
+      res.status(500).json(errorResponse);
+    }
+  }
+
+  /**
+   * Get trade-in offer details
+   * POST /api/trade-in-offer
+   */
+  static async getTradeInOffer(req: Request, res: Response): Promise<void> {
+    try {
+      const { selectedPhoneId, tradeinPhoneBrand, tradeinModel } = req.body;
+
+      // Validate required fields
+      if (!selectedPhoneId || !tradeinPhoneBrand || !tradeinModel) {
+        const errorResponse: TradeInOfferResponse = {
+          success: false,
+          error: "Missing required fields",
+          message:
+            "selectedPhoneId, tradeinPhoneBrand, and tradeinModel are required",
+        };
+        res.status(400).json(errorResponse);
+        return;
+      }
+
+      const tradeInOffer = await PhoneService.getTradeInOffer({
+        selectedPhoneId,
+        tradeinPhoneBrand,
+        tradeinModel,
+      });
+
+      const response: TradeInOfferResponse = {
+        success: true,
+        data: tradeInOffer,
+        message: "Trade-in offer details retrieved successfully",
+      };
+
+      res.status(200).json(response);
+    } catch (error) {
+      const errorResponse: TradeInOfferResponse = {
+        success: false,
+        error: "Failed to fetch trade-in offer",
         message:
           error instanceof Error ? error.message : "Unknown error occurred",
       };
