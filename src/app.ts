@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import phoneRoutes from "./routes/phoneRoutes";
+import heroSectionRoutes from "./routes/heroSectionRoutes";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api", phoneRoutes);
+app.use(heroSectionRoutes);
 
 // Health check endpoint
 app.get("/health", (_req, res) => {

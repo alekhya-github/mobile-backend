@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import phoneRoutes from "./routes/phoneRoutes";
+import heroSectionRoutes from "./routes/heroSectionRoutes";
 
 const app: Application = express();
 const PORT = process.env.PORT || 3001;
@@ -12,6 +13,35 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api", phoneRoutes);
+app.use(heroSectionRoutes);
+
+// Image proxy route to avoid CORS issues
+app.get("/content/dam/*", async (req: Request, res: Response) => {
+  try {
+    const imagePath = req.path;
+    const aemUrl = `http://localhost:4502${imagePath}`;
+    console.log(`Proxying image request to: ${aemUrl}`);
+
+    const response = await fetch(aemUrl);
+
+    if (!response.ok) {
+      throw new Error(`AEM returned status: ${response.status}`);
+    }
+
+    // Forward the content type and other relevant headers
+    const contentType = response.headers.get("content-type");
+    if (contentType) {
+      res.setHeader("Content-Type", contentType);
+    }
+
+    // Stream the image data
+    const buffer = await response.arrayBuffer();
+    res.send(Buffer.from(buffer));
+  } catch (error) {
+    console.error("Error proxying image:", error);
+    res.status(404).send("Image not found");
+  }
+});
 
 // Health check endpoint
 app.get("/health", (_req: Request, res: Response) => {
