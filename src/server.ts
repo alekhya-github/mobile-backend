@@ -2,6 +2,8 @@ import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import phoneRoutes from "./routes/phoneRoutes";
 import heroSectionRoutes from "./routes/heroSectionRoutes";
+import plansRoutes from "./routes/plansRoutes";
+import cartRoutes from "./routes/cartRoutes";
 
 const app: Application = express();
 const PORT = process.env.PORT || 3001;
@@ -14,6 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use("/api", phoneRoutes);
 app.use(heroSectionRoutes);
+app.use(plansRoutes);
+app.use("/api", cartRoutes);
 
 // Image proxy route to avoid CORS issues
 app.get("/content/dam/*", async (req: Request, res: Response) => {

@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import phoneRoutes from "./routes/phoneRoutes";
 import heroSectionRoutes from "./routes/heroSectionRoutes";
+import plansRoutes from "./routes/plansRoutes";
+import cartRoutes from "./routes/cartRoutes";
 
 const app = express();
 
@@ -10,7 +12,7 @@ app.use(
   cors({
     origin: "http://localhost:3000", // Allow React app to connect
     credentials: true,
-  })
+  }),
 );
 
 app.use(express.json());
@@ -19,6 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use("/api", phoneRoutes);
 app.use(heroSectionRoutes);
+app.use(plansRoutes);
+app.use("/api", cartRoutes);
 
 // Health check endpoint
 app.get("/health", (_req, res) => {
@@ -44,7 +48,7 @@ app.use(
     err: Error,
     _req: express.Request,
     res: express.Response,
-    _next: express.NextFunction
+    _next: express.NextFunction,
   ) => {
     console.error("Error:", err.stack);
     res.status(500).json({
@@ -55,7 +59,7 @@ app.use(
           ? err.message
           : "Something went wrong",
     });
-  }
+  },
 );
 
 export default app;
