@@ -40,28 +40,28 @@ export const phoneData: Phone[] = [
     model: "Pixel 10 Pro",
     tagline: "New lower price",
     images: {
-      main: "/images/phones/pixel-10-pro-moonstone.png",
+      main: "/images/phones/google/Pixel-10-Pro-Moonstone-128GB-PRI.avif",
       gallery: [
-        "/images/phones/pixel-10-pro-moonstone-front.png",
-        "/images/phones/pixel-10-pro-moonstone-back.png",
-        "/images/phones/pixel-10-pro-moonstone-side.png",
+        "/images/phones/google/Pixel-10-Pro-Moonstone-128GB-PRI.avif",
+        "/images/phones/google/Pixel-10-Pro-Moonstone-128GB-HERO.avif",
+        "/images/phones/google/Pixel-10-Pro-Obsidian-128GB-PRI.avif",
       ],
     },
     colors: [
       {
         name: "Moonstone",
         hexCode: "#4A6FA5",
-        image: "/images/phones/pixel-10-pro-moonstone.png",
+        image: "/images/phones/google/Pixel-10-Pro-Moonstone-128GB-PRI.avif",
       },
       {
         name: "Obsidian",
         hexCode: "#1C1C1C",
-        image: "/images/phones/pixel-10-pro-obsidian.png",
+        image: "/images/phones/google/Pixel-10-Pro-Obsidian-128GB-PRI.avif",
       },
       {
         name: "Porcelain",
         hexCode: "#E8E4DE",
-        image: "/images/phones/pixel-10-pro-porcelain.png",
+        image: "/images/phones/google/Pixel-10-Pro-Moonstone-128GB-PRI.avif",
       },
     ],
     selectedColor: "Moonstone",
@@ -460,3 +460,4 @@ export const phoneData: Phone[] = [
     freeShipping: true,
   },
 ];
+
